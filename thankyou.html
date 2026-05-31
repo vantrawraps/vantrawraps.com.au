@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | VANTRA</title>
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#0b0b0b;
+      color:white;
+      font-family:Montserrat, sans-serif;
+      text-align:center;
+    }
+
+    .box{
+      max-width:500px;
+      padding:40px;
+      border:1px solid #333;
+      border-radius:12px;
+      background:#111;
+    }
+
+    h1{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    p{
+      color:#aaa;
+      line-height:1.6;
+    }
+
+    .count{
+      margin-top:20px;
+      color:#666;
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Thank You</h1>
+    <p>Your enquiry has been submitted successfully.<br>We’ll get back to you shortly.</p>
+
+    <div class="count">
+      Redirecting back to homepage in <span id="t">5</span> seconds...
+    </div>
+  </div>
+
+  <script>
+    let time = 5;
+
+    const timer = setInterval(() => {
+      time--;
+      document.getElementById("t").innerText = time;
+
+      if (time === 0) {
+        clearInterval(timer);
+        window.location.href = "index.html"; // 回主页
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

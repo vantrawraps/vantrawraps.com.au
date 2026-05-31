@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VANTRA | Premium Car Wrapping</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat', sans-serif;
+      background:#0b0b0b;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+    }
+
+    /* LOGO */
+
+    .logo{
+      display:flex;
+      align-items:center;
+    }
+
+    /* ✅ ONLY FIX HERE */
+    .logo img{
+      height:38px;        /* fixed size */
+      width:auto;
+      max-width:120px;    /* prevent oversize bug */
+      display:block;
+      object-fit:contain;
+    }
+
+    /* NAV LINKS */
+
+    .nav-links{
+      display:flex;
+      gap:40px;
+    }
+
+    .nav-links a{
+      font-size:14px;
+      letter-spacing:2px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#999;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+      url('hero.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      align-items:center;
+
+      padding:120px 8% 80px;
+    }
+
+    .hero-container{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:60px;
+    }
+
+    .hero-content{
+      max-width:650px;
+    }
+
+    .hero h1{
+      font-size:90px;
+      font-weight:800;
+      line-height:1;
+      letter-spacing:5px;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      color:#c7c7c7;
+      line-height:1.8;
+      margin-bottom:40px;
+      max-width:550px;
+    }
+
+    .hero-image img{
+      width:500px;
+      max-width:100%;
+      border-radius:12px;
+      object-fit:cover;
+    }
+
+    /* BUTTONS */
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 32px;
+      border:1px solid white;
+      font-size:14px;
+      letter-spacing:2px;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+    }
+
+    .btn-filled{
+      background:white;
+      color:black;
+    }
+
+    .btn-filled:hover{
+      background:transparent;
+      color:white;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      font-size:48px;
+      margin-bottom:20px;
+      font-weight:700;
+    }
+
+    .section-subtitle{
+      color:#999;
+      margin-bottom:60px;
+      max-width:600px;
+      line-height:1.8;
+    }
+
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .service-card{
+      background:#151515;
+      padding:40px;
+      border:1px solid #222;
+      transition:0.4s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+      border-color:#666;
+    }
+
+    .service-card h3{
+      margin-bottom:20px;
+      font-size:24px;
+    }
+
+    .service-card p{
+      color:#999;
+      line-height:1.7;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      transition:0.4s;
+      cursor:pointer;
+      border-radius:10px;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+      opacity:0.8;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      height:550px;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    .about-text p{
+      color:#999;
+      line-height:2;
+      margin-bottom:25px;
+    }
+
+    /* CONTACT */
+
+    .contact-form{
+      max-width:700px;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:18px;
+      background:#111;
+      border:1px solid #333;
+      margin-bottom:20px;
+      color:white;
+      font-family:inherit;
+    }
+
+    textarea{
+      height:180px;
+      resize:none;
+    }
+
+    button{
+      padding:16px 40px;
+      background:white;
+      color:black;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      letter-spacing:2px;
+    }
+
+    footer{
+      padding:40px 8%;
+      border-top:1px solid #222;
+      color:#777;
+      text-align:center;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      nav{
+        padding:16px 5%;
+      }
+
+      .logo img{
+        height:30px;
+        max-width:100px;
+      }
+
+      .nav-links{
+        gap:20px;
+      }
+
+      .nav-links a{
+        font-size:12px;
+      }
+
+      .hero{
+        padding:120px 5% 60px;
+      }
+
+      .hero-container{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero h1{
+        font-size:52px;
+      }
+
+      .hero-image img{
+        width:100%;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:90px 5%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      <img src="logo.jpg" alt="Vantra Logo">
+    </div>
+
+    <div class="nav-links">
+      <a href="#services">SERVICES</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-container">
+
+      <div class="hero-content">
+
+        <h1>
+          PREMIUM<br>
+          CAR WRAPPING
+        </h1>
+
+        <p>
+          Melbourne based premium vehicle wrapping studio specialising in
+          luxury wraps, chrome delete, satin finishes and automotive styling.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#contact" class="btn btn-filled">
+            GET A QUOTE
+          </a>
+
+          <a href="#gallery" class="btn">
+            VIEW GALLERY
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+        <img src="dennis1.jpg" alt="">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <h2 class="section-title">
+      Services
+    </h2>
+
+    <p class="section-subtitle">
+      High-end automotive styling and protection solutions tailored
+      for performance, luxury and exotic vehicles.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>Full Wrap</h3>
+        <p>Complete colour transformation using premium vinyl wraps with flawless installation.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Chrome Delete</h3>
+        <p>Remove chrome accents for a stealthy and aggressive appearance.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>PPF</h3>
+        <p>Paint protection film to defend your vehicle against scratches, chips and road damage.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Ceramic Coating</h3>
+        <p>Deep gloss protection with long-lasting hydrophobic coating.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section id="gallery">
+
+    <h2 class="section-title">
+      Gallery
+    </h2>
+
+    <p class="section-subtitle">
+      Premium wrapped vehicle projects by VANTRA.
+    </p>
+
+    <div class="gallery">
+
+      <img src="car11.jpg" alt="">
+      <img src="car22.jpg" alt="">
+      <img src="car33.jpg" alt="">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="about">
+
+      <img src="about.jpg" alt="">
+
+      <div class="about-text">
+
+        <h2 class="section-title">
+          About Vantra
+        </h2>
+
+        <p>
+          VANTRA is a Melbourne based premium automotive styling studio
+          focused on high-end vehicle transformation and protection.
+        </p>
+
+        <p>
+          We combine precision craftsmanship with premium materials
+          to deliver clean, timeless and aggressive automotive aesthetics.
+        </p>
+
+        <a href="#contact" class="btn">
+          CONTACT US
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <form class="contact-form"
+      action="https://formsubmit.co/info@vantrawraps.com.au"
+      method="POST">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="vehicle" placeholder="Vehicle Model">
+
+      <textarea name="message" placeholder="Tell us about your project"></textarea>
+
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://vantrawraps.com.au">
+
+      <button type="submit">SEND ENQUIRY</button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 VANTRA. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
